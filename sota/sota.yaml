@@ -1,0 +1,943 @@
+---
+DEEP LEARNING tools:
+  -
+    #common block
+    title: "VulDeePecker: A Deep Learning-Based System for Vulnerability Detection"
+    research_group: Huangzong
+    venue: NDSS‘2018
+    paper_link: https://arxiv.org/pdf/1801.01681.pdf?source=post_page---------------------------
+    DOI: 
+    short_name: VulDeePecker
+    short_summary: 
+    #dataset/tool block
+    tool_available: yes
+    dataset_tool_link: https://github.com/CGCL-codes/VulDeePecker
+    vuln_types: 2 CWE (buffer error and resource management error)
+    vuln_db_size: 840 files (~10K test cases)
+    supported_languages: C/C++
+    unit_stored_in_db: source code file
+    labelling_unit: Vulnerable code line or deleted/modified line in a vulnerability fixing commit (patch)
+    #approach block
+    classification_unit: |
+      code gadgets - lines of code semantically related to each other,
+      similar to a code slice (identified library/API function call, then
+      build forward or backward slices for each variable used in a call,
+      dependeing on a function call type)
+    input_preprocessing: code gadgets -> anonymizing code gadgets -> word2vec
+    machine_learning_specifics: BLSTM neural network
+    prediction_output_4_developer: code gadget
+    notes: 
+  -
+    #common block
+    title: "SySeVR: A Framework for Using Deep Learning to Detect Vulnerabilities"
+    research_group: Huangzong
+    venue: 
+    paper_link: https://arxiv.org/pdf/1807.06756.pdf
+    DOI: 
+    short_name: SySeVR
+    short_summary: |
+      extension of VulDeePecker. Aim at identifying vulnerabilities that match
+      some code charateristics (e.g., vuln. signature)
+    #dataset/tool block
+    tool_available: yes
+    dataset_tool_link: https://github.com/SySeVR/SySeVR
+    vuln_types: 126 vulnerability types
+    vuln_db_size: "1,591 open source C/C++ programs from the NVD and 14,000 programs from the SARD"
+    supported_languages: C/C++
+    unit_stored_in_db: source code file
+    labelling_unit: Vulnerable code line or deleted/modified line in a vulnerability fixing commit (patch)
+    #approach block
+    classification_unit: backward + forward slice built on a code line of interest
+    input_preprocessing: |
+      slices -> removing non-ascii characters -> map variable and function names to
+      symbolic names (e.g., V1, V1, F1, F2)
+    machine_learning_specifics: CNN, DBN, LSTM, GRU, BLSTM, BGRU
+    prediction_output_4_developer: code slices
+    notes: 
+  -
+    #common block
+    title: Automated vulnerability detection in source code using deep representation learning
+    research_group: Draper
+    venue: International Conference on Machine Learning and Applications 2018
+    paper_link: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8614145&casa_token=qitXMZGB2gwAAAAA:s_yW1ogX_SZcpOFf-Y6owUR6pERO3BDaBy3JIsJhbn3Ilppp7RmVG0x-N5OOsAdZUn2vZKuk&tag=1
+    DOI: 
+    short_name: 
+     short_summary: deep feature representation learning on source code is a promising approach for automated software vulnerability detection.
+    #dataset/tool block
+    tool_available: -
+    dataset_tool_link: -
+    vuln_types: buffer overflow, improper bounds, null ptr dereference, pointer substraction for size determination, improper input validation, Use of Uninitialized Variable, Buffer Access with Incorrect Length Value
+    vuln_db_size: ~80.000 functions
+    supported_languages: C/C++
+    unit_stored_in_db: functions
+    labelling_unit:
+    #approach block
+    classification_unit: 
+    input_preprocessing: lexing to 156-elemnt vocabulary of tokens
+    machine_learning_specifics: combines the neural feature representations of lexed function source code with a powerful ensemble classiﬁer, random forest (RF).
+    prediction_output_4_developer:  
+    notes: 
+  -
+    #common block
+    title: Automated Vulnerability Detection in Source Code Using Minimum Intermediate Representation Learning
+    research_group: 
+    venue: Applied Sciences 2020
+    paper_link: https://www.mdpi.com/2076-3417/10/5/1692/pdf
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: |
+      "Devign: Effective vulnerability identification by learning comprehensive
+      program semantics via graph neural networks"
+    research_group: 
+    venue: Advances in Neural Information Processing Systems 2019
+    paper_link: http://papers.nips.cc/paper/9209-devign-effective-vulnerability-identification-by-learning-comprehensive-program-semantics-via-graph-neural-networks.pdf
+    DOI: 
+    short_name: Devign
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://github.com/epicosy/devign
+    dataset_tool_link: https://github.com/epicosy/devign
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: This project is under development. For now, just the Abstract Syntax Tree is considered for the graph embedding of code and model training.
+  -
+    #common block
+    title: Modeling and discovering vulnerabilities with code property graphs
+    research_group: 
+    venue: SP  -2014
+    paper_link: https://ieeexplore.ieee.org/iel7/6954656/6956545/06956589.pdf?casa_token=hDfnucSUeJgAAAAA:QmwJfz7woLq7eKp8AaSdIRQ2n7uJz9IDn7ba7SU19rLap_W6J3eFIrdbWygRVcNdzRu-mtoS
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: |
+      code property graph - combines abstract syntax trees, control flow graphs
+      and program dependency graphs
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: "Neuzz: Efficient fuzzing with neural program smoothing,"
+    research_group: 
+    venue: SP-2019
+    paper_link: https://ieeexplore.ieee.org/iel7/8826229/8835208/08835342.pdf?casa_token=s-9cdscH9GoAAAAA:3meuV_Xu5SLscBeU3vxh3QlnfuzKnVYPA4VCepXzgxkypE187obU04kZmbwQ9FdGiirdrgwz
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://github.com/dongdongshe/neuzz
+    dataset_tool_link: Lava-M, Darpa CGC
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: We recommend running NEUZZ on a machine with a Nvidia 1080Ti or higher for efficient NN training.
+  -
+    #common block
+    title: "Convolutional neural networks over tree structures for programming language processing"
+    research_group: 
+    venue: conference on artificail intelligence (AAAI) 2016
+    paper_link: https://arxiv.org/pdf/1409.5718.pdf)
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://sites.google.com/site/treebasedcnn/
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: Does not focus on security
+  -
+    #common block
+    title: Automatic inference of search patterns for taint-style vulnerabilities
+    research_group: 
+    venue: SP-2015
+    paper_link: https://ieeexplore.ieee.org/iel7/7160813/7163005/07163061.pdf?casa_token=uNsQe_2yZmkAAAAA:7pfSB6l9WUZgtUPSqjFZY50X1a32SyD2-eg-u3yaVsfiXXgVgEOCW38NFILJDiMZoNvR4UTx
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://github.com/fabsx00/querygen
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: "µvuldeepecker: A deep learning-based system for multiclass vulnerability detection"
+    research_group: 
+    venue: Transactions on Dependable and Secure Computing
+    paper_link: https://ieeexplore.ieee.org/iel7/8858/4358699/08846081.pdf?casa_token=RD8xOt9cXugAAAAA:W5a5NKd_7q6nxnUPWbCEFOL0guD3Yns6EPMCXWw2RrXh8hNoECTUwMhl6uK7U7OYV7R08iJr
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: only dataset
+    dataset_tool_link: https://github.com/muVulDeePecker/muVulDeePecker
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C/C++
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: VulDeepecker is a binary classifier, this is a multiclass classifier
+  -
+    #common block
+    title: |
+      "Project achilles: A prototype tool for static method-level vulnerability detection
+      of java source code using a recurrent neural network"
+    research_group: 
+    venue: Automated Software Engineering Workshop 2019
+    paper_link: https://ieeexplore.ieee.org/iel7/8960954/8967402/08967427.pdf?casa_token=wnXonH_8BAUAAAAA:nsaID_dUSdNBmy3t9LakRQSSdeIGRr-Rdtx9_pCaTqEIGqWmV_vBzjtO8yQNh4qogxnzD-0S
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://gitlab.com/TUSoftwareEngineering/vulnerability-localization-using-machine-learning
+    dataset_tool_link: Juliet Java Test Suite (https://github.com/find-sec-bugs/juliet-test-suite)
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: Java 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: Learning to map source code to software vulnerability using code-as-a-graph
+    research_group: 
+    venue: 
+    paper_link: https://arxiv.org/pdf/2006.08614
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://github.com/AI4VA/va
+    dataset_tool_link: Juliet, Draper, S-babi
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C
+    unit_stored_in_db: 
+    labelling_unit:
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer:  
+    notes: 
+  -
+    #common block
+    title: "Suzzer: A Vulnerability-Guided Fuzzer Based on Deep Learning"
+    research_group: 
+    venue: Information Security and technology
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: "VulDeeLocator: A Deep Learning-based Fine-grained Vulnerability Detector"
+    research_group: 
+    venue: 
+    paper_link: https://arxiv.org/pdf/2001.02350
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: ?
+    dataset_tool_link: https://github.com/VulDeeLocator/VulDeeLocator
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: has better benchmark results than SySeVR
+  -
+    #common block
+    title: Restructured Cloning Vulnerability Detection Based on Function Semantic Reserving and Reiteration Screening
+    research_group: 
+    venue: ESORICS 2020
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: Recurrent Neural Network Based Binary Code Vulnerability Detection
+    research_group: 
+    venue: International Conference on Algorithms, Computing and Artificial Intelligence (ACAI) 2019
+    paper_link: https://dl.acm.org/doi/pdf/10.1145/3377713.3377738?casa_token=3bFvqXEaHogAAAAA:WBU1cLbRkpzudIRP-aJDelbAnp6N_ndBsNe8G9_r6J_dN4Q_SYuzA0E-g1Kh1jYdMlM6bjI9DAc
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: Investigating Input Representations and Representation Models of Source Code for Machine Learning
+    research_group: 
+    venue: TU Dresden thesis
+    paper_link: https://141.76.38.40/files/Images/people/chair-cc/theses/2002_Brauckmann_DA.pdf
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: Deep Learning for Software Vulnerabilities Detection Using Code Metrics
+    research_group: 
+    venue: IEEE Access
+    paper_link: https://ieeexplore.ieee.org/iel7/6287639/8948470/09069943.pdf
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: "VUDDY: A scalable approach for vulnerable code clone discovery"
+    research_group: Korea University
+    venue: IEEE SP-2017
+    paper_link: https://ieeexplore.ieee.org/iel7/7957740/7958557/07958600.pdf?casa_token=c9hYhZ4yhAoAAAAA:8h68JoaEcaRCBOS070iaSgsVouXE7ndGfwfSpCRb5fGe1k9CtZL_X1jfSIiM1-hFNRH593HW
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://github.com/squizz617/vuddy or at https://iotcube.net/ as hmark 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C/C++
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: 
+    research_group: 
+    venue: 
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+
+Studies of DL vulnerability detection:
+  -
+    #common block
+    title: A comparative study of deep learning-based vulnerability detection system
+    research_group: 
+    venue: IEEE Access
+    paper_link: https://ieeexplore.ieee.org/iel7/6287639/8600701/08769937.pdf
+    DOI: 
+    short_name: 
+    short_summary: Same as VulDeePecker
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: https://github.com/VulDeePecker/Comparative_Study
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: "Software Vulnerability Detection Using Deep Neural Networks: A Survey"
+    research_group: 
+    venue: Proceedings of the IEEE
+    paper_link: https://ieeexplore.ieee.org/iel7/5/4357935/09108283.pdf?casa_token=8yGETo65IzwAAAAA:O99XjGaa0swAVlQQ_Dzs0nYx-CnCxGlghb45UQUpouOqeLHJgmu6nno3EfYYRzxif_6kqzjj
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: "The impact factors on the performance of machine learning-based vulnerability detection: A comparative study"
+    research_group: 
+    venue: Journal of Systems and Software 2020
+    paper_link: https://www.sciencedirect.com/science/article/pii/S0164121220301229?casa_token=-w92bSBGL-sAAAAA:DQV53JohD2fX1bRTL3Xba5BqxobMmEBnESLQypIXSCg9MeZxCGPGcrli2-xNgBzJGCq3lW03
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: An Empirical Study of High-Impact Factors for Machine Learning-Based Vulnerability Detection
+    research_group: 
+    venue: INTERNATIONAL WORKSHOP ON INTELLIGENT BUG FIXING 2020
+    paper_link: https://ieeexplore.ieee.org/iel7/9023779/9034538/09034888.pdf?casa_token=sAdiIdMeQgAAAAAA:ruSS_LMupasrlFLi27-A0BxJsa4sMbhe9RUwNZfPLRCIZon6z9jagdXLfPTsR7e6cSGXsV2d
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: "Deep Learning-Based Vulnerable Function Detection: A Benchmark"
+    research_group: 
+    venue: Information and Communication security 2019
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: A Survey of Automatic Software Vulnerability Detection, Program Repair, and Defect Prediction Techniques
+    research_group: 
+    venue: Security and communication networks 2020
+    paper_link: https://www.hindawi.com/journals/scn/2020/8858010/
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: "Deep Learning based Vulnerability Detection: Are We There Yet?"
+    research_group: 
+    venue: Transactions on Software Engineering
+    paper_link: https://arxiv.org/pdf/2009.07235
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://github.com/VulDetProject/ReVeal
+    dataset_tool_link: https://drive.google.com/drive/folders/1KuIYgFcvWUXheDhT--cBALsfy1I4utOy ?
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C/C++ 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+  -
+    #common block
+    title: 
+    research_group: 
+    venue: 
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit: 
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer: 
+    notes: 
+
+Explainability/interpretability of DL based classifiers:
+  -
+    #common block
+    title: 
+    research_group: 
+    venue: 
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit:
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer:  
+    notes: 
+
+Other:
+  -
+    #common block
+    title: A Practical Approach to the Automatic Classification of Security-Relevant Commits
+    research_group: SAP Research
+    venue: -
+    paper_link: 10.1109/icsme.2018.00058
+    DOI: 
+    short_name: 
+    short_summary: uses  machine-learning  to  analyze  source  code repositories   and   to   automatically   identify   commits   that   are security-relevant By  combining  independent  classifiers  that  use  information from  different  facets  of  commits,  our  method  can  yield  high precision (80%) while ensuring acceptable recall (43%).
+    #dataset/tool block
+    tool_available: possibly Eclipse Steady https://github.com/eclipse/steady/
+    dataset_tool_link: SAP DB, probably https://github.com/SAP/project-kb
+    vuln_types: Unnamed CVE
+    vuln_db_size: 2715 commits
+    supported_languages: trained on JAVA, tried on Ruby
+    unit_stored_in_db: CVE excerpts, code change pairs
+    labelling_unit: CVE excerpts, code change pairs
+    #approach block
+    classification_unit: logs classified with SVM, patches classified with bags of words
+    input_preprocessing: labelled negative examples with scripts and manually, filtered special characters, removed stop words, removed context lines
+    machine_learning_specifics: joint (OR) decision based on two classifiers
+    prediction_output_4_developer: is the commit security relevant 
+    notes: 
+  -
+   #common block
+    title: Automated Identification of Security Issues from Commit Messages and Bug Reports
+    research_group: SourceClear, Inc.
+    venue: aderborn, Germany
+    paper_link: https://doi.org/10.1145/3106237.3117771
+    DOI: 
+    short_name: 
+    short_summary: Combining different ML models working on texts in commit messages and bug reports to improve recall
+    #dataset/tool block
+    tool_available: -
+    dataset_tool_link: -
+    vuln_types: unknown, based on commit message's text analysis
+    vuln_db_size: 2268 commits
+    supported_languages: Java, Python, Ruby, JS, Obj.C, Go
+    unit_stored_in_db: commit
+    labelling_unit: commit
+    #approach block
+    classification_unit: words
+    input_preprocessing: 
+    machine_learning_specifics: word2vec embedding, combined results from classifiers with logistic regression: random forest (RF), Gaussian Naive Bayes (GNB), K-nearest neighbors (KNN), linear SVM, gradient boosting (GB), and AdaBoost (Ada)
+    prediction_output_4_developer: security relevant commits flagged 
+    notes: 
+  -
+    #common block
+    title: "Beyond Metadata: Code-centric and Usage-based Analysis of Known Vulnerabilities in Open-source Software"
+    research_group: SAP
+    venue: ICSME'18
+    paper_link: https://ieeexplore.ieee.org/document/8530051
+    DOI: 
+    short_name: 
+    short_summary: combines static and dynamic analysis to determine the reachability of the vulnerable portion of libraries used
+    #dataset/tool block
+    tool_available: Vulas
+    dataset_tool_link: 
+    vuln_types: -
+    vuln_db_size: -
+    supported_languages: JAVA
+    unit_stored_in_db: -
+    labelling_unit: -
+    #approach block
+    classification_unit: -
+    input_preprocessing: -
+    machine_learning_specifics: -
+    prediction_output_4_developer: -
+    notes: no machine learning applied
+  -
+    #common block
+    title: Detecting “0-Day” Vulnerability: an Empirical Study of Secret Security Patch in OSS
+    research_group: Center for Secure Information Systems
+    venue: DSN
+    paper_link: https://ieeexplore.ieee.org/document/8809499
+    DOI: 
+    short_name:
+    short_summary:
+    #dataset/tool block
+    tool_available:
+    dataset_tool_link: https://github.com/SecretPatch/Dataset
+    vuln_types: CVE...
+    vuln_db_size: 1636 security patch + 1636 other patch
+    supported_languages: C/C++
+    unit_stored_in_db: Security patches
+    labelling_unit:
+    #approach block
+    classification_unit:
+    input_preprocessing:
+    machine_learning_specifics: Random Forest, Bayes Net, Stochastic Gradient Descent (SGD), Sequential Minimal Optimization(SMO), and Bagging, with majority vote.
+    prediction_output_4_developer:
+    notes:
+  -
+    #common block
+    title: Enabling the Continuous Analysis of Security Vulnerabilities with VulData7
+    research_group: 
+    venue: 
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://github.com/electricalwind/data7
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit:
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer:  
+    notes: a framework and dataset supporting the continuous collection and analysis of security vulnerabilities
+  -
+    #common block
+    title: "ReDeBug: Finding Unpatched Code Clones in Entire OS Distributions"
+    research_group: 
+    venue: 
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: https://github.com/dbrumley/redebug 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: C/C++
+    unit_stored_in_db: 
+    labelling_unit:
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer:  
+    notes: 
+  -
+    #common block
+    title: Source code vulnerabilities detection using loosely coupled data and control flows
+    research_group: University Politehnica of Bucharest
+    venue: 2019 21st International SYNAC
+    paper_link:
+    DOI: 
+    short_name:
+    short_summary: Define a structure of a source code abstract representation (called Intermediate Representation (IR)), which can enable CWE vulnerabilty patterns classification even in languages which were not part of the training process.
+    #dataset/tool block
+    tool_available:
+    dataset_tool_link: https://samate.nist.gov/SARD/testsuite.php
+    vuln_types: CWE23 (Path Traversal), CWE 78 ()
+    vuln_db_size:
+    supported_languages: mostly C/C++ but aiming all other even not the mainstream programming languages
+    unit_stored_in_db:
+    labelling_unit:
+    #approach block
+    classification_unit:
+    input_preprocessing: the source code transformed into an IR that contains the relevant tokens (instructions) and identifiers (vairables) in the order of their appearance in the code
+        Control flow: the tokens are encoded into numerical values, the similar tokens get the same value
+        Data flow: variables, data elements and keywords (Generic Identifiers) transformed into numerical values, if an identifier appear more than once it get the same value
+    machine_learning_specifics: SVM (SVC), NN, Logistic Regression, Decision Tree (DT)
+    prediction_output_4_developer:
+    notes: The IR remains only loosely coupled to the programming languages used for training the system, which allows adaptability to various lexical representations of similar instructions, for example the instruction “connect” in C/C++, presents a similar context with Java token
+  -
+    #common block
+    title: Static Code Analysis to Detect Software Security Vulnerabilities - Does Experience Matter?
+    research_group: 
+    venue: 
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit:
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer:  
+    notes: 
+  -
+    #common block
+    title: "VCIPR: Vulnerable Code is Identifiable When a Patch is Released (Hacker’s Perspective)"
+    research_group: 
+    venue: 
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: 
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit:
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer:  
+    notes: 
+  -
+    #common block
+    title: "VulinOSS: a dataset of security vulnerabilities in open-source systems"
+    research_group: 
+    venue: 
+    paper_link: 
+    DOI: 
+    short_name: 
+    short_summary: 
+    #dataset/tool block
+    tool_available: 
+    dataset_tool_link: https://github.com/AUEB-BALab/VulinOSS
+    vuln_types: 
+    vuln_db_size: 
+    supported_languages: 
+    unit_stored_in_db: 
+    labelling_unit:
+    #approach block
+    classification_unit: 
+    input_preprocessing: 
+    machine_learning_specifics: 
+    prediction_output_4_developer:  
+    notes: 
+-
+    #common block
+    title: "Vulnerability Prediction From Source Code Using Machine Learning"
+    research_group: Ericsson Research
+    venue:
+    paper_link: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9167194
+    DOI: 
+    short_name:
+    short_summary: numeric array representation of the source code with the help of the abstract syntay tree (AST) and using machine learnig algorithms to predict vulnerable code fragments
+    #dataset/tool block
+    tool_available:
+    dataset_tool_link: https://osf.io/d45bw/
+    vuln_types: CWE-119 (Improper Restriction of Operators within the Bounds of a Memory Buffer), CWE-120(/121/122) (Buffer Overflow), CWE-469 (Use of Pointer Subraction to Determine Size), CWE-476 (Null pointer dereference) and CWE-other(20/457/805/etc) (Improper Input Validation/Use of Uninitialized Variable/etc)
+    vuln_db_size:  1.27 million functions
+    supported_languages: C++/C (used only C)
+    unit_stored_in_db: functions (methods)
+    labelling_unit: functions (methods)
+    #approach block
+    classification_unit: source code fragments
+    input_preprocessing: Spliting into the lowest level of granulanity parts (function level) of the source code, then tokenization of the functions. Based on the result generize the abstract syntax tree (AST) and convert it into a complete binary AST. Finally encoding the tokens into numerical tuples and bulding up the numarical array with Breadth-first search (BFS) of the binary AST and mapping the numerical tupels to the corresponding nodes of the tree.
+    machine_learning_specifics: Multi-Layer Perceptron (MLP), Convolutional Neural Network (CNN)
+    prediction_output_4_developer:
